@@ -1,0 +1,62 @@
+Folder Structure
+css
+Copy code
+src/
+├── assets/
+│   ├── logo/
+│   │   ├── logo.png
+│   │   ├── logo-small.png
+│   │   └── favicon.png
+│   ├── illustrations/
+│   │   ├── upload-placeholder.svg
+│   │   ├── coding.svg
+│   │   ├── bugfix.svg
+│   │   └── chatbot.svg
+│   ├── styles/
+│   │   └── colors.css
+│   └── icons/
+│       ├── upload-icon.svg
+│       ├── generate-icon.svg
+│       ├── bug-icon.svg
+│       ├── test-icon.svg
+│       └── summarize-icon.svg
+🖼️ Sample Usage in Components
+✅ Importing an image or icon
+jsx
+Copy code
+import Logo from '../assets/logo/logo.png';
+import UploadIcon from '../assets/icons/upload-icon.svg';
+
+function Header() {
+  return (
+    <header>
+      <img src={Logo} alt="SmartSDLC Logo" width="150" />
+    </header>
+  );
+}
+🎨 colors.css (optional for theme)
+css
+Copy code
+:root {
+  --primary-color: #2f80ed;
+  --secondary-color: #56cc9d;
+  --background-color: #f4f7fa;
+  --text-color: #333;
+  --light-gray: #e0e0e0;
+}
+To use in a component:
+
+jsx
+Copy code
+import '../assets/styles/colors.css';
+
+<div style={{ backgroundColor: 'var(--background-color)' }}>
+  Welcome to SmartSDLC!
+</div>
+📦 Where to Get Assets?
+Icons: https://www.flaticon.com, https://heroicons.com, https://feathericons.com
+
+Illustrations: https://undraw.co/illustrations (great for modern vector assets)
+
+Favicon generator: https://realfavicongenerator.net
+

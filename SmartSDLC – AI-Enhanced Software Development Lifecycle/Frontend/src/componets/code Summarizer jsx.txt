@@ -1,0 +1,23 @@
+import React, { useState } from 'react';
+import axios from 'axios';
+
+function CodeSummarizer() {
+  const [codeInput, setCodeInput] = useState('');
+  const [summary, setSummary] = useState('');
+
+  const summarizeCode = async () => {
+    const response = await axios.post('/api/code/summarize', { code: codeInput });
+    setSummary(response.data.summary);
+  };
+
+  return (
+    <div>
+      <h2>Code Summarizer</h2>
+      <textarea rows={6} value={codeInput} onChange={e => setCodeInput(e.target.value)} />
+      <button onClick={summarizeCode}>Summarize</button>
+      <p>{summary}</p>
+    </div>
+  );
+}
+
+export default CodeSummarizer;

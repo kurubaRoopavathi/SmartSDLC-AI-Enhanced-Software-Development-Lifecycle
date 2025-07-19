@@ -1,0 +1,64 @@
+package.json
+json
+Copy code
+{
+  "name": "smartsdlc-frontend",
+  "version": "1.0.0",
+  "private": true,
+  "description": "SmartSDLC - AI-powered platform for automating the Software Development Lifecycle.",
+  "dependencies": {
+    "axios": "^1.6.8",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.23.0",
+    "react-scripts": "5.0.1"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      "defaults"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "keywords": [],
+  "author": "Your Name",
+  "license": "MIT"
+}
+📦 To Install All Dependencies
+After saving the file, run:
+
+bash
+Copy code
+npm install
+🔧 What’s Included
+Package	Purpose
+react	React core library
+react-dom	DOM renderer for React
+react-router-dom	Client-side routing
+axios	API requests to backend
+react-scripts	Create React App tooling (build/test/start)
+
+✨ Optional Add-ons
+Would you like to add any of the following?
+
+Feature	Package
+UI Components (Material)	@mui/material, @emotion/react
+Form handling	formik, yup
+Notifications	react-toastify
+Animations	framer-motion
+Global state (optional)	zustand or redux

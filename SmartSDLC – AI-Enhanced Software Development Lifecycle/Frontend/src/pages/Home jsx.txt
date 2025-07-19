@@ -1,0 +1,104 @@
+Home.jsx
+jsx
+Copy code
+import React from 'react';
+import { Link } from 'react-router-dom';
+import '../assets/styles/home.css'; // Optional CSS
+
+function Home() {
+  return (
+    <div className="home-container">
+      <header className="home-header">
+        <h1>Welcome to SmartSDLC</h1>
+        <p>An AI-powered platform to automate and enhance your software development lifecycle.</p>
+      </header>
+
+      <section className="home-grid">
+        <Link to="/requirements" className="home-card">
+          <h3>📄 Requirement Classifier</h3>
+          <p>Upload unstructured requirements and get them sorted by SDLC phase.</p>
+        </Link>
+
+        <Link to="/codegen" className="home-card">
+          <h3>💻 AI Code Generator</h3>
+          <p>Generate production-ready code from prompts or user stories.</p>
+        </Link>
+
+        <Link to="/bugfix" className="home-card">
+          <h3>🐞 Bug Fixer</h3>
+          <p>Fix syntax and logic errors in your code instantly.</p>
+        </Link>
+
+        <Link to="/testcases" className="home-card">
+          <h3>🧪 Test Case Generator</h3>
+          <p>Generate unit tests from functional code or requirements.</p>
+        </Link>
+
+        <Link to="/summarizer" className="home-card">
+          <h3>📚 Code Summarizer</h3>
+          <p>Get a human-readable summary of any source code.</p>
+        </Link>
+      </section>
+    </div>
+  );
+}
+
+export default Home;
+🧾 home.css (Optional Styling)
+Create this file at src/assets/styles/home.css:
+
+css
+Copy code
+.home-container {
+  padding: 2rem;
+  text-align: center;
+}
+
+.home-header h1 {
+  font-size: 2.5rem;
+  color: #2f80ed;
+}
+
+.home-header p {
+  margin: 1rem 0 2rem;
+  color: #555;
+}
+
+.home-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+}
+
+.home-card {
+  background: #ffffff;
+  border: 1px solid #e0e0e0;
+  padding: 1.5rem;
+  border-radius: 12px;
+  text-align: left;
+  transition: box-shadow 0.2s;
+  text-decoration: none;
+  color: #333;
+}
+
+.home-card:hover {
+  box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+}
+
+.home-card h3 {
+  margin-bottom: 0.5rem;
+}
+🧭 Routing Setup in App.jsx
+Make sure to register this route:
+
+jsx
+Copy code
+<Route path="/" element={<Home />} />
+✅ What’s Next?
+Would you like:
+
+Animated cards or transitions (Framer Motion)?
+
+User onboarding or a step-by-step intro?
+
+Authentication (Login/Register) before using tools?

@@ -1,0 +1,35 @@
+import React, { useState } from 'react';
+import axios from 'axios';
+
+function RequirementUploader() {
+  const [file, setFile] = useState(null);
+  const [classifiedOutput, setClassifiedOutput] = useState(null);
+
+  const handleUpload = async () => {
+    const formData = new FormData();
+    formData.append('requirement_file', file);
+
+    const response = await axios.post('/api/requirements/classify', formData);
+    setClassifiedOutput(response.data); // Expecting { Requirements: [...], Design: [...], ... }
+  };
+
+  return (
+    <div>
+      <h2>Upload Requirement Document</h2>
+      <input type="file" onChange={e => setFile(e.target.files[0])} />
+      <button onClick={handleUpload}>Upload & Analyze</button>
+
+      {classifiedOutput &&
+        Object.entries(classifiedOutput).map(([phase, items]) => (
+          <div key={phase}>
+            <h3>{phase}</h3>
+            <ul>
+              {items.map((item, idx) => <li key={idx}>{item}</li>)}
+            </ul>
+          </div>
+        ))}
+    </div>
+  );
+}
+
+export default RequirementUploader;

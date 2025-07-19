@@ -1,0 +1,79 @@
+📁 public/ Directory Structure
+pgsql
+Copy code
+public/
+├── favicon.ico
+├── logo192.png
+├── logo512.png
+├── manifest.json
+├── robots.txt
+└── index.html
+📄 index.html
+html
+Copy code
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="SmartSDLC - AI-Enhanced Software Development Lifecycle" />
+    <meta name="theme-color" content="#2f80ed" />
+    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    <title>SmartSDLC</title>
+  </head>
+  <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root"></div>
+  </body>
+</html>
+🧾 manifest.json
+This file is used for PWA (Progressive Web App) support and allows users to install the app like a native mobile app.
+
+json
+Copy code
+{
+  "short_name": "SmartSDLC",
+  "name": "SmartSDLC - AI-Enhanced Software Development Lifecycle",
+  "icons": [
+    {
+      "src": "logo192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "logo512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#2f80ed",
+  "background_color": "#ffffff"
+}
+🤖 robots.txt
+txt
+Copy code
+User-agent: *
+Disallow:
+🖼️ logo192.png and logo512.png
+Use your app’s branding logo here. These are needed for PWA functionality. You can generate app icons from a source logo using tools like:
+
+https://realfavicongenerator.net
+
+https://app-manifest.firebaseapp.com/
+
+🎯 favicon.ico
+You can create one using an image-to-icon generator, or use the default React favicon and replace it with your brand icon.
+
+✅ Optional Enhancements
+You can add:
+
+sitemap.xml (for SEO)
+
+OpenGraph tags in index.html for social media previews
+
+Google Fonts or custom fonts directly in the head tag
+

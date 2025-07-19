@@ -1,0 +1,37 @@
+import React, { useState } from 'react';
+import axios from 'axios';
+
+function FloatingChatbot() {
+  const [open, setOpen] = useState(false);
+  const [query, setQuery] = useState('');
+  const [chatLog, setChatLog] = useState([]);
+
+  const askAI = async () => {
+    const response = await axios.post('/api/chatbot', { question: query });
+    setChatLog([...chatLog, { question: query, answer: response.data.answer }]);
+    setQuery('');
+  };
+
+  return (
+    <div className="chatbot-floating">
+      <button onClick={() => setOpen(!open)}>💬 Chat</button>
+      {open && (
+        <div className="chat-window">
+          <div className="chat-log">
+            {chatLog.map((chat, idx) => (
+              <div key={idx}>
+                <strong>You:</strong> {chat.question}
+                <br />
+                <strong>AI:</strong> {chat.answer}
+              </div>
+            ))}
+          </div>
+          <input value={query} onChange={e => setQuery(e.target.value)} placeholder="Ask something..." />
+          <button onClick={askAI}>Send</button>
+        </div>
+      )}
+    </div>
+  );
+}
+
+export default FloatingChatbot;

@@ -1,0 +1,23 @@
+import React from 'react';
+import RequirementUploader from '../components/RequirementUploader';
+import CodeGenerator from '../components/CodeGenerator';
+import BugFixer from '../components/BugFixer';
+import TestCaseGenerator from '../components/TestCaseGenerator';
+import CodeSummarizer from '../components/CodeSummarizer';
+import FloatingChatbot from '../components/FloatingChatbot';
+
+function Dashboard() {
+  return (
+    <div>
+      <h1>SmartSDLC Dashboard</h1>
+      <RequirementUploader />
+      <CodeGenerator />
+      <BugFixer />
+      <TestCaseGenerator />
+      <CodeSummarizer />
+      <FloatingChatbot />
+    </div>
+  );
+}
+
+export default Dashboard;

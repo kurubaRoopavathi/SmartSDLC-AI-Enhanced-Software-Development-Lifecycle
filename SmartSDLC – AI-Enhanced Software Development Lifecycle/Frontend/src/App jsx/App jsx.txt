@@ -1,0 +1,95 @@
+ App.jsx (Full Version with Routing & Navigation)
+jsx
+Copy code
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+
+import RequirementUploader from './components/RequirementUploader';
+import CodeGenerator from './components/CodeGenerator';
+import BugFixer from './components/BugFixer';
+import TestCaseGenerator from './components/TestCaseGenerator';
+import CodeSummarizer from './components/CodeSummarizer';
+import FloatingChatbot from './components/FloatingChatbot';
+
+import './App.css'; // Optional: Add styling here
+
+function App() {
+  return (
+    <Router>
+      <div className="app-container">
+        <nav className="navbar">
+          <h1>SmartSDLC</h1>
+          <ul className="nav-links">
+            <li><Link to="/requirements">Requirements</Link></li>
+            <li><Link to="/codegen">Code Generator</Link></li>
+            <li><Link to="/bugfix">Bug Fixer</Link></li>
+            <li><Link to="/testcases">Test Cases</Link></li>
+            <li><Link to="/summarizer">Summarizer</Link></li>
+          </ul>
+        </nav>
+
+        <main className="main-content">
+          <Routes>
+            <Route path="/" element={<RequirementUploader />} />
+            <Route path="/requirements" element={<RequirementUploader />} />
+            <Route path="/codegen" element={<CodeGenerator />} />
+            <Route path="/bugfix" element={<BugFixer />} />
+            <Route path="/testcases" element={<TestCaseGenerator />} />
+            <Route path="/summarizer" element={<CodeSummarizer />} />
+          </Routes>
+        </main>
+
+        <FloatingChatbot />
+      </div>
+    </Router>
+  );
+}
+
+export default App;
+🧭 Optional Styling (in App.css)
+Add this file in the src/ folder to make it look clean.
+
+css
+Copy code
+.app-container {
+  font-family: Arial, sans-serif;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #2f80ed;
+  color: white;
+  padding: 10px 20px;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 15px;
+}
+
+.nav-links li a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.nav-links li a:hover {
+  text-decoration: underline;
+}
+
+.main-content {
+  padding: 20px;
+}
+✅ Routing Setup Checklist
+To ensure this works, make sure:
+
+You’ve installed React Router:
+
+bash
+Copy code
+npm install react-router-dom
+All your components (e.g., RequirementUploader.jsx, CodeGenerator.jsx) are saved in src/components/.
+

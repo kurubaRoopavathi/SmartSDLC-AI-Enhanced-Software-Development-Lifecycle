@@ -1,0 +1,30 @@
+import React, { useState } from 'react';
+import axios from 'axios';
+import { Light as SyntaxHighlighter } from 'react-syntax-highlighter';
+
+function BugFixer() {
+  const [inputCode, setInputCode] = useState('');
+  const [fixedCode, setFixedCode] = useState('');
+
+  const fixBug = async () => {
+    const response = await axios.post('/api/bugfix', { code: inputCode });
+    setFixedCode(response.data.fixed_code);
+  };
+
+  return (
+    <div>
+      <h2>Bug Fixer</h2>
+      <textarea rows={6} value={inputCode} onChange={e => setInputCode(e.target.value)} />
+      <button onClick={fixBug}>Fix Code</button>
+
+      {fixedCode && (
+        <div>
+          <h3>Fixed Code:</h3>
+          <SyntaxHighlighter language="javascript">{fixedCode}</SyntaxHighlighter>
+        </div>
+      )}
+    </div>
+  );
+}
+
+export default BugFixer;

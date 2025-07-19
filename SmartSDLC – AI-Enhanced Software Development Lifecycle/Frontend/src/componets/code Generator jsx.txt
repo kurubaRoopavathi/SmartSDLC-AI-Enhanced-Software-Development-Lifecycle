@@ -1,0 +1,26 @@
+import React, { useState } from 'react';
+import axios from 'axios';
+import { Light as SyntaxHighlighter } from 'react-syntax-highlighter';
+
+function CodeGenerator() {
+  const [prompt, setPrompt] = useState('');
+  const [code, setCode] = useState('');
+
+  const generateCode = async () => {
+    const response = await axios.post('/api/code/generate', { prompt });
+    setCode(response.data.code);
+  };
+
+  return (
+    <div>
+      <h2>AI Code Generator</h2>
+      <textarea rows={4} value={prompt} onChange={e => setPrompt(e.target.value)} />
+      <button onClick={generateCode}>Generate</button>
+      {code && (
+        <SyntaxHighlighter language="python">{code}</SyntaxHighlighter>
+      )}
+    </div>
+  );
+}
+
+export default CodeGenerator;

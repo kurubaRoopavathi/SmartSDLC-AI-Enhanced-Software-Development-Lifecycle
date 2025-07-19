@@ -1,0 +1,23 @@
+import React, { useState } from 'react';
+import axios from 'axios';
+
+function TestCaseGenerator() {
+  const [codeInput, setCodeInput] = useState('');
+  const [testCases, setTestCases] = useState('');
+
+  const generateTests = async () => {
+    const response = await axios.post('/api/tests/generate', { code: codeInput });
+    setTestCases(response.data.tests);
+  };
+
+  return (
+    <div>
+      <h2>Test Case Generator</h2>
+      <textarea rows={6} value={codeInput} onChange={e => setCodeInput(e.target.value)} />
+      <button onClick={generateTests}>Generate Tests</button>
+      <pre>{testCases}</pre>
+    </div>
+  );
+}
+
+export default TestCaseGenerator;
